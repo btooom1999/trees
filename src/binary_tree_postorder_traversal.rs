@@ -62,7 +62,7 @@ fn postorder_traversal(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
         let mut node = node_rc.borrow_mut();
 
         if node.left.is_none() && node.right.is_none() {
-            curr = stack.pop().and_then(|v| v);
+            curr = stack.pop().flatten();
             res.push(node.val);
         } else if node.right.is_some() && node.left.is_some() {
             curr = node.left.take();
