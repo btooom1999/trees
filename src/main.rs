@@ -1,3 +1,5 @@
+mod binary_tree_inorder_traversal;
+
 fn main() {
-    println!("Hello, world!");
+    binary_tree_inorder_traversal::main();
 }
