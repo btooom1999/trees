@@ -12,7 +12,8 @@ mod subtree_of_another_tree;
 mod merge_two_binary_tree;
 mod path_sum;
 mod range_sum_of_bst;
+mod leaf_similar_trees;
 
 fn main() {
-    range_sum_of_bst::main();
+    leaf_similar_trees::main();
 }
