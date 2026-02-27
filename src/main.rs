@@ -8,7 +8,8 @@ mod maximum_depth_of_binary_tree;
 mod diameter_of_binary_tree;
 mod balanced_binary_tree;
 mod same_tree;
+mod subtree_of_another_tree;
 
 fn main() {
-    same_tree::main();
+    subtree_of_another_tree::main();
 }
