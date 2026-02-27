@@ -27,59 +27,53 @@ fn vec_to_tree(nums: Vec<Option<i32>>) -> Option<Rc<RefCell<TreeNode>>> {
         for node_rc in nodes.iter() {
             let mut node = node_rc.borrow_mut();
 
-            // left side
             if i < nums.len() {
-                if let Some(&val) = nums.get(i) && let Some(val) = val {
+                if let Some(val) = nums[i] {
                     let left = Rc::new(RefCell::new(TreeNode::new(val)));
                     node.left = Some(left.clone());
                     new_nodes.push(left.clone());
                 }
-
                 i += 1;
             }
 
-            // right side
             if i < nums.len() {
-                if let Some(&val) = nums.get(i) && let Some(val) = val {
+                if let Some(val) = nums[i] {
                     let right = Rc::new(RefCell::new(TreeNode::new(val)));
                     node.right = Some(right.clone());
                     new_nodes.push(right.clone());
                 }
-
                 i += 1;
             }
         }
-
         nodes = new_nodes;
     }
 
     Some(root)
 }
 
-fn invert_tree(root: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>> {
-    let mut stack = Vec::new();
-    let mut curr = root.clone();
+fn helper(node: Option<Rc<RefCell<TreeNode>>>, max_diameter: &mut i32) -> i32 {
+    if let Some(node_rc) = node {
+        let node = node_rc.borrow();
 
-    while let Some(node_rc) = curr {
-        let mut node = node_rc.borrow_mut();
-        if node.left.is_some() || node.right.is_some() {
-            (node.left, node.right) = (node.right.take(), node.left.take());
+        let l_height = helper(node.left.clone(), max_diameter);
+        let r_height = helper(node.right.clone(), max_diameter);
 
-            if node.left.is_some() {
-                curr = node.left.clone();
-                if node.right.is_some() { stack.push(node.right.clone()); }
-            } else {
-                curr = node.right.clone();
-            }
-        } else {
-            curr = stack.pop().flatten();
-        }
+        *max_diameter = std::cmp::max(*max_diameter, l_height + r_height);
+
+        1 + std::cmp::max(l_height, r_height)
+    } else {
+        0
     }
+}
 
-    root
+fn diameter_of_binary_tree(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
+    let mut max = 0;
+    helper(root, &mut max);
+
+    max
 }
 
 pub fn main() {
-    let root = [Some(4), Some(2), Some(7), Some(1), Some(3), Some(6), Some(9)];
-    println!("{:#?}", invert_tree(vec_to_tree(root.into())));
+    let root = [Some(1), Some(2), Some(3), Some(4), Some(5)];
+    println!("{}", diameter_of_binary_tree(vec_to_tree(root.into())));
 }
