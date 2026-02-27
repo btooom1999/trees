@@ -59,7 +59,7 @@ fn helper(node: Option<Rc<RefCell<TreeNode>>>, mut current_sum: i32, target_sum:
 
         lb || rb || (current_sum == target_sum && node.left.is_none() && node.right.is_none())
     } else {
-        current_sum == target_sum
+        false
     }
 }
 
