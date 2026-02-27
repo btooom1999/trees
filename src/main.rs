@@ -13,7 +13,8 @@ mod merge_two_binary_tree;
 mod path_sum;
 mod range_sum_of_bst;
 mod leaf_similar_trees;
+mod evaluate_boolean_binary_tree;
 
 fn main() {
-    leaf_similar_trees::main();
+    evaluate_boolean_binary_tree::main();
 }
