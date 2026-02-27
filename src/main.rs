@@ -9,7 +9,8 @@ mod diameter_of_binary_tree;
 mod balanced_binary_tree;
 mod same_tree;
 mod subtree_of_another_tree;
+mod merge_two_binary_tree;
 
 fn main() {
-    subtree_of_another_tree::main();
+    merge_two_binary_tree::main();
 }
