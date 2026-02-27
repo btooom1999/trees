@@ -14,7 +14,8 @@ mod path_sum;
 mod range_sum_of_bst;
 mod leaf_similar_trees;
 mod evaluate_boolean_binary_tree;
+mod closest_binary_search_tree_value;
 
 fn main() {
-    evaluate_boolean_binary_tree::main();
+    closest_binary_search_tree_value::main();
 }
