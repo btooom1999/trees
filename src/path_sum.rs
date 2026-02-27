@@ -57,7 +57,7 @@ fn helper(node: Option<Rc<RefCell<TreeNode>>>, mut current_sum: i32, target_sum:
         let lb = helper(node.left.clone(), current_sum, target_sum);
         let rb = helper(node.right.clone(), current_sum, target_sum);
 
-        lb || rb || (current_sum == target_sum || node.left.is_none() && node.right.is_none())
+        lb || rb || (current_sum == target_sum && node.left.is_none() && node.right.is_none())
     } else {
         current_sum == target_sum
     }
