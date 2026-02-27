@@ -15,7 +15,8 @@ mod range_sum_of_bst;
 mod leaf_similar_trees;
 mod evaluate_boolean_binary_tree;
 mod closest_binary_search_tree_value;
+mod minimum_absolute_difference_in_bst;
 
 fn main() {
-    closest_binary_search_tree_value::main();
+    minimum_absolute_difference_in_bst::main();
 }
