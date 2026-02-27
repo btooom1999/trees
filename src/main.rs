@@ -10,7 +10,8 @@ mod balanced_binary_tree;
 mod same_tree;
 mod subtree_of_another_tree;
 mod merge_two_binary_tree;
+mod path_sum;
 
 fn main() {
-    merge_two_binary_tree::main();
+    path_sum::main();
 }
