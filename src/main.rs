@@ -23,7 +23,9 @@ mod binary_tree_longest_consecutive_sequence;
 mod create_binary_tree_from_descriptions;
 mod construct_string_from_binary_tree;
 mod lowest_common_ancestor_of_a_binary_tree;
+mod lowest_common_ancestor_of_a_binary_search_tree;
+mod insert_into_a_binary_search_tree;
 
 fn main() {
-    lowest_common_ancestor_of_a_binary_tree::main();
+    insert_into_a_binary_search_tree::main();
 }
