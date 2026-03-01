@@ -20,7 +20,8 @@ mod minimum_distance_between_bst_nodes;
 mod symmetric_tree;
 mod binary_tree_vertical_order_traversal;
 mod binary_tree_longest_consecutive_sequence;
+mod create_binary_tree_from_descriptions;
 
 fn main() {
-    binary_tree_longest_consecutive_sequence::main();
+    create_binary_tree_from_descriptions::main();
 }
