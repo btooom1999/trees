@@ -19,7 +19,8 @@ mod minimum_absolute_difference_in_bst;
 mod minimum_distance_between_bst_nodes;
 mod symmetric_tree;
 mod binary_tree_vertical_order_traversal;
+mod binary_tree_longest_consecutive_sequence;
 
 fn main() {
-    binary_tree_vertical_order_traversal::main();
+    binary_tree_longest_consecutive_sequence::main();
 }
