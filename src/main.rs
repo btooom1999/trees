@@ -18,7 +18,8 @@ mod closest_binary_search_tree_value;
 mod minimum_absolute_difference_in_bst;
 mod minimum_distance_between_bst_nodes;
 mod symmetric_tree;
+mod binary_tree_vertical_order_traversal;
 
 fn main() {
-    symmetric_tree::main();
+    binary_tree_vertical_order_traversal::main();
 }
