@@ -28,7 +28,8 @@ mod insert_into_a_binary_search_tree;
 mod delete_node_in_a_bst;
 mod binary_tree_level_order_traversal;
 mod binary_tree_right_side_view;
+mod reverse_odd_levels_of_binary_tree;
 
 fn main() {
-    binary_tree_right_side_view::main();
+    reverse_odd_levels_of_binary_tree::main();
 }
