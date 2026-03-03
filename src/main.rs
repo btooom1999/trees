@@ -25,7 +25,8 @@ mod construct_string_from_binary_tree;
 mod lowest_common_ancestor_of_a_binary_tree;
 mod lowest_common_ancestor_of_a_binary_search_tree;
 mod insert_into_a_binary_search_tree;
+mod delete_node_in_a_bst;
 
 fn main() {
-    insert_into_a_binary_search_tree::main();
+    delete_node_in_a_bst::main();
 }
