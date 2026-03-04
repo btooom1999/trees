@@ -37,7 +37,8 @@ mod cousins_in_binary_tree_2;
 mod linked_list_in_binary_tree;
 mod binary_tree_zigzag_level_order_traversal;
 mod find_duplicate_subtrees;
+mod check_completeness_of_a_binary_tree;
 
 fn main() {
-    find_duplicate_subtrees::main();
+    check_completeness_of_a_binary_tree::main();
 }
