@@ -35,7 +35,8 @@ mod maximum_level_sum_of_a_binary_tree;
 mod kth_largest_perfect_subtree_size_in_binary_tree;
 mod cousins_in_binary_tree_2;
 mod linked_list_in_binary_tree;
+mod binary_tree_zigzag_level_order_traversal;
 
 fn main() {
-    linked_list_in_binary_tree::main();
+    binary_tree_zigzag_level_order_traversal::main();
 }
