@@ -1,5 +1,6 @@
-use std::{cell::RefCell, rc::Rc};
+use std::{cell::RefCell, collections::VecDeque, rc::Rc};
 
+#[derive(Debug)]
 struct TreeNode {
     val: i32,
     left: Option<Rc<RefCell<TreeNode>>>,
@@ -23,6 +24,7 @@ fn vec_to_tree(nums: Vec<Option<i32>>) -> Option<Rc<RefCell<TreeNode>>> {
     let mut i = 1;
     while i < nums.len() {
         let mut new_nodes = Vec::new();
+
         for node_rc in nodes.iter() {
             let mut node = node_rc.borrow_mut();
 
@@ -41,48 +43,38 @@ fn vec_to_tree(nums: Vec<Option<i32>>) -> Option<Rc<RefCell<TreeNode>>> {
             i += 1;
         }
 
-        nodes = new_nodes
+        nodes = new_nodes;
     }
 
     Some(root)
 }
 
-fn helper(
-    node: Option<Rc<RefCell<TreeNode>>>,
-    res1: &mut Option<(i32, i32)>,
-    res2: &mut Option<(i32, i32)>,
-    x: i32,
-    y: i32,
-    parent: i32,
-    depth: i32,
-) {
-    if let Some(node_rc) = node {
-        let node = node_rc.borrow();
-        if node.val == x {
-            *res1 = Some((depth, parent));
+fn max_level_sum(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
+    let mut nodes = VecDeque::from([root.clone(), None]);
+    let mut depth = 1;
+    let mut max = (depth, i32::MIN);
+
+    let mut sum = 0;
+    while let Some(front) = nodes.pop_front() {
+        if let Some(node_rc) = front {
+            let node = node_rc.borrow();
+            sum += node.val;
+            if node.left.is_some() { nodes.push_back(node.left.clone()); }
+            if node.right.is_some() { nodes.push_back(node.right.clone()); }
+        } else {
+            if sum > max.1 {
+                max = (depth, sum);
+            }
+            sum = 0;
+            depth += 1;
+            if !nodes.is_empty() { nodes.push_back(None); }
         }
-        if node.val == y {
-            *res2 = Some((depth, parent));
-        }
-
-        helper(node.left.clone(), res1, res2, x, y, node.val, depth+1);
-        helper(node.right.clone(), res1, res2, x, y, node.val, depth+1);
     }
-}
 
-fn is_cousins(root: Option<Rc<RefCell<TreeNode>>>, x: i32, y: i32) -> bool {
-    let (mut res1, mut res2) = (None, None);
-    helper(root, &mut res1, &mut res2, x, y, -1, 0);
-
-    if let (Some(res1), Some(res2)) = (res1, res2) {
-        res1.0 == res2.0 && res1.1 != res2.1
-    } else {
-        false
-    }
+    max.0
 }
 
 pub fn main() {
-    let root = vec![Some(1), Some(2), Some(3), Some(4)];
-    let (x, y) = (4, 3);
-    println!("{}", is_cousins(vec_to_tree(root), x, y))
+    let root = vec![Some(1), Some(7), Some(0), Some(7), Some(-8), None, None];
+    println!("{:?}", max_level_sum(vec_to_tree(root)));
 }
