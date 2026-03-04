@@ -36,7 +36,8 @@ mod kth_largest_perfect_subtree_size_in_binary_tree;
 mod cousins_in_binary_tree_2;
 mod linked_list_in_binary_tree;
 mod binary_tree_zigzag_level_order_traversal;
+mod find_duplicate_subtrees;
 
 fn main() {
-    binary_tree_zigzag_level_order_traversal::main();
+    find_duplicate_subtrees::main();
 }
