@@ -32,7 +32,8 @@ mod reverse_odd_levels_of_binary_tree;
 mod kth_largest_sum_in_a_binary_tree;
 mod cousins_in_binary_tree;
 mod maximum_level_sum_of_a_binary_tree;
+mod kth_largest_perfect_subtree_size_in_binary_tree;
 
 fn main() {
-    maximum_level_sum_of_a_binary_tree::main();
+    kth_largest_perfect_subtree_size_in_binary_tree::main();
 }
