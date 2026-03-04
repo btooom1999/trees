@@ -34,7 +34,8 @@ mod cousins_in_binary_tree;
 mod maximum_level_sum_of_a_binary_tree;
 mod kth_largest_perfect_subtree_size_in_binary_tree;
 mod cousins_in_binary_tree_2;
+mod linked_list_in_binary_tree;
 
 fn main() {
-    cousins_in_binary_tree_2::main();
+    linked_list_in_binary_tree::main();
 }
