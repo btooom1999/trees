@@ -41,7 +41,8 @@ mod check_completeness_of_a_binary_tree;
 mod maximum_width_of_binary_tree;
 mod count_good_nodes_in_binary_tree;
 mod validate_binary_search_tree;
+mod kth_smallest_element_in_a_bst;
 
 fn main() {
-    validate_binary_search_tree::main();
+    kth_smallest_element_in_a_bst::main();
 }
