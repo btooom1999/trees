@@ -76,7 +76,9 @@ fn is_complete_tree(root: Option<Rc<RefCell<TreeNode>>>) -> bool {
 
         if new_nodes.is_empty() {
             return true;
-        } else if new_nodes.len() as i32 != 2i32.pow(row) {
+        }
+
+        if new_nodes.len() as i32 != 2i32.pow(row) {
             if last { return false; }
             last = true;
         }

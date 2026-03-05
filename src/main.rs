@@ -38,7 +38,8 @@ mod linked_list_in_binary_tree;
 mod binary_tree_zigzag_level_order_traversal;
 mod find_duplicate_subtrees;
 mod check_completeness_of_a_binary_tree;
+mod maximum_width_of_binary_tree;
 
 fn main() {
-    check_completeness_of_a_binary_tree::main();
+    maximum_width_of_binary_tree::main();
 }
