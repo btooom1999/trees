@@ -49,7 +49,8 @@ mod pseudo_palindromic_paths_in_a_binary_tree;
 mod even_odd_tree;
 mod smallest_string_starting_from_leaf;
 mod delete_leaves_with_a_given_value;
+mod delete_nodes_and_return_forest;
 
 fn main() {
-    delete_leaves_with_a_given_value::main();
+    delete_nodes_and_return_forest::main();
 }
