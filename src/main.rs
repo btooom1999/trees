@@ -46,7 +46,8 @@ mod sum_root_to_leaf_numbers;
 mod find_bottom_left_tree_value;
 mod find_largest_value_in_each_tree_row;
 mod pseudo_palindromic_paths_in_a_binary_tree;
+mod even_odd_tree;
 
 fn main() {
-    pseudo_palindromic_paths_in_a_binary_tree::main();
+    even_odd_tree::main();
 }
