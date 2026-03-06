@@ -44,7 +44,8 @@ mod validate_binary_search_tree;
 mod kth_smallest_element_in_a_bst;
 mod sum_root_to_leaf_numbers;
 mod find_bottom_left_tree_value;
+mod find_largest_value_in_each_tree_row;
 
 fn main() {
-    find_bottom_left_tree_value::main();
+    find_largest_value_in_each_tree_row::main();
 }
