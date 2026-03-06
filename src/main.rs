@@ -47,7 +47,8 @@ mod find_bottom_left_tree_value;
 mod find_largest_value_in_each_tree_row;
 mod pseudo_palindromic_paths_in_a_binary_tree;
 mod even_odd_tree;
+mod smallest_string_starting_from_leaf;
 
 fn main() {
-    even_odd_tree::main();
+    smallest_string_starting_from_leaf::main();
 }
