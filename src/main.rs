@@ -48,7 +48,8 @@ mod find_largest_value_in_each_tree_row;
 mod pseudo_palindromic_paths_in_a_binary_tree;
 mod even_odd_tree;
 mod smallest_string_starting_from_leaf;
+mod delete_leaves_with_a_given_value;
 
 fn main() {
-    smallest_string_starting_from_leaf::main();
+    delete_leaves_with_a_given_value::main();
 }
