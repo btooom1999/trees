@@ -42,7 +42,8 @@ mod maximum_width_of_binary_tree;
 mod count_good_nodes_in_binary_tree;
 mod validate_binary_search_tree;
 mod kth_smallest_element_in_a_bst;
+mod sum_root_to_leaf_numbers;
 
 fn main() {
-    kth_smallest_element_in_a_bst::main();
+    sum_root_to_leaf_numbers::main();
 }
