@@ -45,7 +45,8 @@ mod kth_smallest_element_in_a_bst;
 mod sum_root_to_leaf_numbers;
 mod find_bottom_left_tree_value;
 mod find_largest_value_in_each_tree_row;
+mod pseudo_palindromic_paths_in_a_binary_tree;
 
 fn main() {
-    find_largest_value_in_each_tree_row::main();
+    pseudo_palindromic_paths_in_a_binary_tree::main();
 }
