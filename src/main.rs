@@ -50,7 +50,8 @@ mod even_odd_tree;
 mod smallest_string_starting_from_leaf;
 mod delete_leaves_with_a_given_value;
 mod delete_nodes_and_return_forest;
+mod step_by_step_directions_from_a_binary_tree_node_to_another;
 
 fn main() {
-    delete_nodes_and_return_forest::main();
+    step_by_step_directions_from_a_binary_tree_node_to_another::main();
 }
