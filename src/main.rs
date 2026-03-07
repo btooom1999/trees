@@ -58,7 +58,8 @@ mod find_root_of_n_ary_tree;
 mod clone_n_ary_tree;
 mod diameter_of_n_ary_tree;
 mod lowest_common_ancestor_of_a_binary_tree_3;
+mod lowest_common_ancestor_of_a_binary_tree_2;
 
 fn main() {
-    lowest_common_ancestor_of_a_binary_tree_3::main();
+    lowest_common_ancestor_of_a_binary_tree_2::main();
 }
