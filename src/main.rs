@@ -56,7 +56,8 @@ mod step_by_step_directions_from_a_binary_tree_node_to_another;
 mod n_ary_tree_postorder_traversal;
 mod find_root_of_n_ary_tree;
 mod clone_n_ary_tree;
+mod diameter_of_n_ary_tree;
 
 fn main() {
-    clone_n_ary_tree::main();
+    diameter_of_n_ary_tree::main();
 }
