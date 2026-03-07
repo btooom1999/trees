@@ -57,7 +57,8 @@ mod n_ary_tree_postorder_traversal;
 mod find_root_of_n_ary_tree;
 mod clone_n_ary_tree;
 mod diameter_of_n_ary_tree;
+mod lowest_common_ancestor_of_a_binary_tree_3;
 
 fn main() {
-    diameter_of_n_ary_tree::main();
+    lowest_common_ancestor_of_a_binary_tree_3::main();
 }
