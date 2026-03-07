@@ -52,7 +52,8 @@ mod delete_leaves_with_a_given_value;
 mod delete_nodes_and_return_forest;
 mod step_by_step_directions_from_a_binary_tree_node_to_another;
 mod n_ary_tree_postorder_traversal;
+mod find_root_of_n_ary_tree;
 
 fn main() {
-    n_ary_tree_postorder_traversal::main();
+    find_root_of_n_ary_tree::main();
 }
