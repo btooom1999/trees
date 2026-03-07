@@ -24,8 +24,6 @@ mod binary_tree_vertical_order_traversal;
 mod binary_tree_longest_consecutive_sequence;
 mod create_binary_tree_from_descriptions;
 mod construct_string_from_binary_tree;
-mod lowest_common_ancestor_of_a_binary_tree;
-mod lowest_common_ancestor_of_a_binary_search_tree;
 mod insert_into_a_binary_search_tree;
 mod delete_node_in_a_bst;
 mod binary_tree_level_order_traversal;
@@ -57,10 +55,13 @@ mod n_ary_tree_postorder_traversal;
 mod find_root_of_n_ary_tree;
 mod clone_n_ary_tree;
 mod diameter_of_n_ary_tree;
-mod lowest_common_ancestor_of_a_binary_tree_3;
+mod lowest_common_ancestor_of_a_binary_search_tree;
+mod lowest_common_ancestor_of_a_binary_tree;
 mod lowest_common_ancestor_of_a_binary_tree_2;
+mod lowest_common_ancestor_of_a_binary_tree_3;
 mod lowest_common_ancestor_of_a_binary_tree_4;
+mod construct_quad_tree;
 
 fn main() {
-    lowest_common_ancestor_of_a_binary_tree_4::main();
+    construct_quad_tree::main();
 }
