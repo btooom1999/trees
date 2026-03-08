@@ -61,7 +61,8 @@ mod lowest_common_ancestor_of_a_binary_tree_2;
 mod lowest_common_ancestor_of_a_binary_tree_3;
 mod lowest_common_ancestor_of_a_binary_tree_4;
 mod construct_quad_tree;
+mod populating_next_right_pointers_in_each_node;
 
 fn main() {
-    construct_quad_tree::main();
+    populating_next_right_pointers_in_each_node::main();
 }
