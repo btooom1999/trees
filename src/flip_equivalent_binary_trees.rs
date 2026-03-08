@@ -57,58 +57,19 @@ fn flip_equiv(root1: Option<Rc<RefCell<TreeNode>>>, root2: Option<Rc<RefCell<Tre
                 return false;
             }
 
-            match (node1.left.clone(), node1.right.clone(), node2.left.clone(), node2.right.clone()) {
-                (None, None, None, None) => true,
-                (Some(left1_rc), Some(right1_rc), Some(left2_rc), Some(right2_rc)) => {
-                    let left1 = left1_rc.borrow();
-                    let right1 = right1_rc.borrow();
-                    let left2 = left2_rc.borrow();
-                    let right2 = right2_rc.borrow();
+            let no_flip = flip_equiv(node1.left.clone(),node2.left.clone())
+                && flip_equiv(node1.right.clone(), node2.right.clone());
 
-                    if left1.val == left2.val && right1.val == right2.val {
-                        return flip_equiv(
-                            Some(left1_rc.clone()),
-                            Some(left2_rc.clone())
-                        ) && flip_equiv(
-                            Some(right1_rc.clone()),
-                            Some(right2_rc.clone())
-                        );
-                    }
+            let flip = flip_equiv(node1.left.clone(),node2.right.clone())
+                && flip_equiv(node1.right.clone(), node2.left.clone());
 
-                    if left1.val == right2.val && right1.val == left2.val {
-                        return flip_equiv(
-                            Some(left1_rc.clone()),
-                            Some(right2_rc.clone())
-                        ) && flip_equiv(
-                            Some(left2_rc.clone()),
-                            Some(right1_rc.clone())
-                        );
-                    }
-
-                    false
-                },
-                (Some(node1_rc), None, None, Some(node2_rc))
-                | (None, Some(node1_rc), Some(node2_rc), _)
-                | (Some(node1_rc), None, Some(node2_rc), _)
-                | (None, Some(node1_rc), None, Some(node2_rc)) => {
-                    let node1 = node1_rc.borrow();
-                    let node2 = node2_rc.borrow();
-
-                    if node1.val != node2.val {
-                        return false;
-                    }
-
-                    flip_equiv(Some(node1_rc.clone()), Some(node2_rc.clone()))
-                },
-                _ => false
-
-            }
+            no_flip || flip
+        }
+        (None, None) => {
+            true
         }
         (Some(_), _) | (_, Some(_)) => {
             false
-        }
-        _ => {
-            true
         }
     }
 }
