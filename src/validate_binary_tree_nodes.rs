@@ -50,6 +50,7 @@ fn vec_to_tree(nums: Vec<Option<i32>>) -> Option<Rc<RefCell<TreeNode>>> {
 fn validate_binary_tree_nodes(n: i32, left_child: Vec<i32>, right_child: Vec<i32>) -> bool {
     let n = n as _;
     let mut hashmap = vec![None; n];
+    let mut root = n;
 
     let mut i = 0;
     while i < n {
@@ -61,7 +62,11 @@ fn validate_binary_tree_nodes(n: i32, left_child: Vec<i32>, right_child: Vec<i32
         }
 
         if left != -1 {
-            let left = left as _;
+            let left = left as usize;
+            if hashmap[left].is_some() {
+                return false;
+            }
+
             let mut k = i;
             while let Some(val) = hashmap[k] {
                 k = val;
@@ -70,15 +75,16 @@ fn validate_binary_tree_nodes(n: i32, left_child: Vec<i32>, right_child: Vec<i32
                 }
             }
 
-            if hashmap[left].is_some() {
-                return false;
-            }
-
+            root -= 1;
             hashmap[left] = Some(i);
         }
 
         if right != -1 {
-            let right = right as _;
+            let right = right as usize;
+            if hashmap[right].is_some() {
+                return false;
+            }
+
             let mut k = i;
             while let Some(val) = hashmap[k] {
                 k = val;
@@ -87,17 +93,14 @@ fn validate_binary_tree_nodes(n: i32, left_child: Vec<i32>, right_child: Vec<i32
                 }
             }
 
-            if hashmap[right].is_some() {
-                return false;
-            }
-
+            root -= 1;
             hashmap[right] = Some(i);
         }
 
         i += 1;
     }
 
-    hashmap.into_iter().fold(0, |acc, node| acc + if node.is_none() { 1 } else { 0 }) == 1
+    root == 1
 }
 
 pub fn main() {
