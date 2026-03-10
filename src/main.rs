@@ -69,7 +69,8 @@ mod two_sum_bsts;
 mod verify_preorder_sequence_in_binary_search_tree;
 mod find_leaves_of_binary_tree;
 mod boundary_of_binary_tree;
+mod maximum_average_subtree;
 
 fn main() {
-    boundary_of_binary_tree::main();
+    maximum_average_subtree::main();
 }
