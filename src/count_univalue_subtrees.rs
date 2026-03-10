@@ -49,29 +49,38 @@ fn vec_to_tree(nums: Vec<Option<i32>>) -> Option<Rc<RefCell<TreeNode>>> {
     Some(root)
 }
 
-fn count_unival_subtrees(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
+fn helper(root: Option<Rc<RefCell<TreeNode>>>, count: &mut i32) -> bool {
     if let Some(node_rc) = root {
         let node = node_rc.borrow();
 
-        let lv = count_unival_subtrees(node.left.clone());
-        let rv = count_unival_subtrees(node.right.clone());
+        let lv = helper(node.left.clone(), count);
+        let rv = helper(node.right.clone(), count);
 
-        if node.left.as_ref().is_some_and(|left| left.borrow().val != node.val) {
-            return lv + rv;
+        if !lv
+        || !rv
+        || node.left.as_ref().is_some_and(|next| next.borrow().val != node.val)
+        || node.right.as_ref().is_some_and(|next| next.borrow().val != node.val) {
+            return false;
         }
 
-        if node.right.as_ref().is_some_and(|right|right.borrow().val != node.val) {
-            return lv + rv;
-        }
-
-        lv + rv + 1
+        *count += 1;
+        true
     } else {
-        0
+        true
     }
+}
+
+fn count_unival_subtrees(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
+    let mut count = 0;
+    helper(root, &mut count);
+
+    count
 }
 
 pub fn main() {
     // let root = vec![Some(5), Some(1), Some(5), Some(5), Some(5), None, Some(5)];
-    let root = vec![Some(5), Some(4), Some(5), Some(4), Some(4), None, Some(5)];
+    // let root = vec![Some(1), Some(1), Some(1), Some(5), Some(5), None, Some(5)];
+    // let root = vec![Some(5), Some(1), Some(5), None, None, Some(5), Some(5)];
+    let root = vec![Some(1), Some(1), Some(1), Some(5), Some(1)];
     println!("{}", count_unival_subtrees(vec_to_tree(root)));
 }
