@@ -73,5 +73,5 @@ mod maximum_average_subtree;
 mod count_univalue_subtrees;
 
 fn main() {
-    count_univalue_subtrees::main();
+    binary_tree_longest_consecutive_sequence::main();
 }

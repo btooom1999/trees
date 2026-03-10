@@ -62,23 +62,26 @@ fn helper(node: Option<Rc<RefCell<TreeNode>>>, long: i32, max_long: &mut i32) {
             helper(node.right.clone(), if node.val + 1 == right_node.val { long + 1 } else { 1 }, max_long);
         }
 
-        *max_long = std::cmp::max(*max_long, long);
+        if long > 1 {
+            *max_long = std::cmp::max(*max_long, long);
+        }
     }
 }
 
 fn longest_consecutive(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
-    let mut max_long = 0;
+    let mut max_long = -1;
     helper(root, 1, &mut max_long);
 
     max_long
 }
 
 pub fn main() {
-    // let root = vec![Some(1), None, Some(3), Some(2), Some(4), None, None, None, Some(5)];
-    let root1: Vec<Option<i32>> = vec![Some(1), Some(2), Some(3)];
-    let root2: Vec<Option<i32>> = vec![Some(2), None, Some(3), None, Some(4), None, Some(5), None, Some(6)];
-    let root3: Vec<Option<i32>> = vec![Some(1), None, Some(2), None, Some(3), None, Some(4)];
-    let root4: Vec<Option<i32>> = vec![Some(3), Some(2), Some(4), None, None, None, Some(5)];
-    let root5: Vec<Option<i32>> = vec![Some(1), Some(2), Some(3), None, None, Some(4), Some(5)];
-    println!("{}", longest_consecutive(vec_to_tree(root5)));
+    let root = vec![Some(1), None, Some(3), Some(2), Some(4), None, None, None, Some(5)];
+    // let root1: Vec<Option<i32>> = vec![Some(1), Some(2), Some(3)];
+    // let root2: Vec<Option<i32>> = vec![Some(2), None, Some(3), None, Some(4), None, Some(5), None, Some(6)];
+    // let root3: Vec<Option<i32>> = vec![Some(1), None, Some(2), None, Some(3), None, Some(4)];
+    // let root4: Vec<Option<i32>> = vec![Some(3), Some(2), Some(4), None, None, None, Some(5)];
+    // let root5: Vec<Option<i32>> = vec![Some(1), Some(2), Some(3), None, None, Some(4), Some(5)];
+    // let tree_vec: Vec<Option<i32>> = vec![Some(10), Some(20), Some(30), Some(40), None, Some(60), None];
+    println!("{}", longest_consecutive(vec_to_tree(root)));
 }
