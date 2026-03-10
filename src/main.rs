@@ -67,7 +67,8 @@ mod validate_binary_tree_nodes;
 mod largest_bst_subtree;
 mod two_sum_bsts;
 mod verify_preorder_sequence_in_binary_search_tree;
+mod find_leaves_of_binary_tree;
 
 fn main() {
-    verify_preorder_sequence_in_binary_search_tree::main();
+    find_leaves_of_binary_tree::main();
 }
