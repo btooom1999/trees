@@ -66,7 +66,8 @@ mod flip_equivalent_binary_trees;
 mod validate_binary_tree_nodes;
 mod largest_bst_subtree;
 mod two_sum_bsts;
+mod verify_preorder_sequence_in_binary_search_tree;
 
 fn main() {
-    two_sum_bsts::main();
+    verify_preorder_sequence_in_binary_search_tree::main();
 }
