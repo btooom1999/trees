@@ -74,7 +74,8 @@ mod count_univalue_subtrees;
 mod binary_tree_longest_consecutive_sequence_2;
 mod construct_binary_tree_from_inorder_and_postorder_traversal;
 mod convert_sorted_array_to_binary_search_tree;
+mod construct_binary_tree_from_preorder_and_inorder_traversal;
 
 fn main() {
-    convert_sorted_array_to_binary_search_tree::main();
+    construct_binary_tree_from_preorder_and_inorder_traversal::main();
 }
