@@ -1,7 +1,5 @@
 #![allow(unused)]
 
-use std::clone;
-
 mod binary_tree_inorder_traversal;
 mod binary_tree_preorder_traversal;
 mod binary_tree_postorder_traversal;
@@ -71,7 +69,8 @@ mod find_leaves_of_binary_tree;
 mod boundary_of_binary_tree;
 mod maximum_average_subtree;
 mod count_univalue_subtrees;
+mod binary_tree_longest_consecutive_sequence_2;
 
 fn main() {
-    binary_tree_longest_consecutive_sequence::main();
+    binary_tree_longest_consecutive_sequence_2::main();
 }
