@@ -70,7 +70,8 @@ mod boundary_of_binary_tree;
 mod maximum_average_subtree;
 mod count_univalue_subtrees;
 mod binary_tree_longest_consecutive_sequence_2;
+mod construct_binary_tree_from_inorder_and_postorder_traversal;
 
 fn main() {
-    binary_tree_longest_consecutive_sequence_2::main();
+    construct_binary_tree_from_inorder_and_postorder_traversal::main();
 }
