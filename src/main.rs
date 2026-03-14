@@ -78,7 +78,8 @@ mod construct_binary_tree_from_preorder_and_inorder_traversal;
 mod construct_binary_tree_from_preorder_and_postorder_traversal;
 mod number_of_good_leaf_node_pairs;
 mod operations_on_tree;
+mod binary_tree_maximum_path_sum;
 
 fn main() {
-    operations_on_tree::main();
+    binary_tree_maximum_path_sum::main();
 }
