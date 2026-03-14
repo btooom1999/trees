@@ -57,7 +57,7 @@ fn helper(node: Option<Rc<RefCell<TreeNode>>>, max: &mut i32) -> Option<i32> {
         let mut current = node.val;
         match (left, right) {
             (Some(left), Some(right)) => {
-                current = current.max(node.val + left + right);
+                *max = std::cmp::max(*max, node.val + left + right);
                 current = current.max(node.val + left);
                 current = current.max(node.val + right);
             }
