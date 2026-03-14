@@ -80,7 +80,8 @@ mod number_of_good_leaf_node_pairs;
 mod operations_on_tree;
 mod binary_tree_maximum_path_sum;
 mod binary_tree_paths;
+mod path_sum_2;
 
 fn main() {
-    binary_tree_paths::main();
+    path_sum_2::main();
 }
