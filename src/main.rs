@@ -79,10 +79,11 @@ mod number_of_good_leaf_node_pairs;
 mod operations_on_tree;
 mod binary_tree_maximum_path_sum;
 mod binary_tree_paths;
+mod longest_univalue_path;
 mod path_sum;
 mod path_sum_2;
 mod path_sum_3;
 
 fn main() {
-    path_sum_3::main();
+    longest_univalue_path::main();
 }
