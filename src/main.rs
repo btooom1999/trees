@@ -12,7 +12,6 @@ mod balanced_binary_tree;
 mod same_tree;
 mod subtree_of_another_tree;
 mod merge_two_binary_tree;
-mod path_sum;
 mod range_sum_of_bst;
 mod leaf_similar_trees;
 mod evaluate_boolean_binary_tree;
@@ -80,8 +79,10 @@ mod number_of_good_leaf_node_pairs;
 mod operations_on_tree;
 mod binary_tree_maximum_path_sum;
 mod binary_tree_paths;
+mod path_sum;
 mod path_sum_2;
+mod path_sum_3;
 
 fn main() {
-    path_sum_2::main();
+    path_sum_3::main();
 }
