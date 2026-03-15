@@ -84,7 +84,8 @@ mod path_sum_3;
 mod binary_search_tree_iterator;
 mod convert_bst_to_greater_tree;
 mod distribute_coins_in_binary_tree;
+mod time_needed_to_inform_all_employees;
 
 fn main() {
-    distribute_coins_in_binary_tree::main();
+    time_needed_to_inform_all_employees::main();
 }
