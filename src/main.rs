@@ -83,7 +83,8 @@ mod path_sum_2;
 mod path_sum_3;
 mod binary_search_tree_iterator;
 mod convert_bst_to_greater_tree;
+mod distribute_coins_in_binary_tree;
 
 fn main() {
-    convert_bst_to_greater_tree::main();
+    distribute_coins_in_binary_tree::main();
 }
