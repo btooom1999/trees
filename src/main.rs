@@ -83,7 +83,8 @@ mod longest_univalue_path;
 mod path_sum;
 mod path_sum_2;
 mod path_sum_3;
+mod binary_search_tree_iterator;
 
 fn main() {
-    longest_univalue_path::main();
+    binary_search_tree_iterator::main();
 }
