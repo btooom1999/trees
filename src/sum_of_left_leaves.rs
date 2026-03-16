@@ -1,6 +1,5 @@
 use std::{cell::RefCell, rc::Rc};
 
-#[derive(Debug)]
 struct TreeNode {
     val: i32,
     left: Option<Rc<RefCell<TreeNode>>>,
@@ -23,6 +22,7 @@ fn vec_to_tree(nums: Vec<Option<i32>>) -> Option<Rc<RefCell<TreeNode>>> {
 
     let mut i = 1;
     let n = nums.len();
+
     while i < n {
         let mut new_nodes = Vec::new();
         for node_rc in nodes.iter() {
@@ -49,41 +49,27 @@ fn vec_to_tree(nums: Vec<Option<i32>>) -> Option<Rc<RefCell<TreeNode>>> {
     Some(root)
 }
 
-fn flatten(root: &mut Option<Rc<RefCell<TreeNode>>>) {
-    let mut last = None as Option<Rc<RefCell<TreeNode>>>;
-    let mut cur = root.clone();
-
-    while let Some(node_rc) = cur {
-        let mut node = node_rc.borrow_mut();
-
-        if node.left.is_some() {
-            let right = node.right.take();
-            let mut last_right = right.clone();
-            while let Some(right_rc) = last_right {
-                if right_rc.borrow().right.is_some() {
-                    last_right = right_rc.borrow().right.clone();
-                } else {
-                    right_rc.borrow_mut().right = last;
-                    last = right;
-                    break;
-                }
-            }
-
-            node.right = node.left.take();
+fn helper(node: Option<Rc<RefCell<TreeNode>>>, is_left: bool) -> i32 {
+    if let Some(node_rc) = node {
+        let node = node_rc.borrow();
+        if node.left.is_none() && node.right.is_none() && is_left {
+            return node.val;
         }
 
-        if node.right.is_none() {
-            node.right = last;
-            last = None;
-        }
+        let left = helper(node.left.clone(), true);
+        let right = helper(node.right.clone(), false);
 
-        cur = node.right.clone();
+        left + right
+    } else {
+        0
     }
 }
 
-pub fn main() {
-    let mut root = vec_to_tree([Some(1), Some(2), Some(5), Some(3), Some(4), None, Some(6)].into());
-    flatten(&mut root);
+fn sum_of_left_leaves(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
+    helper(root, false)
+}
 
-    println!("{:#?}", root);
+pub fn main() {
+    let root = [Some(3), Some(9), Some(20), None, None, Some(15), Some(7)];
+    println!("{}", sum_of_left_leaves(vec_to_tree(root.into())));
 }
