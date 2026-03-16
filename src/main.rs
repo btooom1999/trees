@@ -87,7 +87,8 @@ mod distribute_coins_in_binary_tree;
 mod time_needed_to_inform_all_employees;
 mod flatten_binary_tree_to_linked_list;
 mod sum_of_left_leaves;
+mod find_mode_in_binary_search_tree;
 
 fn main() {
-    sum_of_left_leaves::main();
+    find_mode_in_binary_search_tree::main();
 }
