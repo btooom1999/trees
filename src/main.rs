@@ -94,7 +94,8 @@ mod n_ary_tree_preorder_traversal;
 mod average_of_levels_in_binary_tree;
 mod two_sum_4_input_is_a_bst;
 mod second_minimum_node_in_a_binary_tree;
+mod increasing_order_search_tree;
 
 fn main() {
-    second_minimum_node_in_a_binary_tree::main();
+    increasing_order_search_tree::main();
 }
