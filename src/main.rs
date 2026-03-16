@@ -92,7 +92,8 @@ mod maximum_depth_of_n_ary_tree;
 mod binary_tree_tilt;
 mod n_ary_tree_preorder_traversal;
 mod average_of_levels_in_binary_tree;
+mod two_sum_4_input_is_a_bst;
 
 fn main() {
-    average_of_levels_in_binary_tree::main();
+    two_sum_4_input_is_a_bst::main();
 }
