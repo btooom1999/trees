@@ -96,7 +96,8 @@ mod two_sum_4_input_is_a_bst;
 mod second_minimum_node_in_a_binary_tree;
 mod increasing_order_search_tree;
 mod univalued_binary_tree;
+mod sum_of_root_to_leaf_binary_numbers;
 
 fn main() {
-    univalued_binary_tree::main();
+    sum_of_root_to_leaf_binary_numbers::main();
 }
