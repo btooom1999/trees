@@ -95,7 +95,8 @@ mod average_of_levels_in_binary_tree;
 mod two_sum_4_input_is_a_bst;
 mod second_minimum_node_in_a_binary_tree;
 mod increasing_order_search_tree;
+mod univalued_binary_tree;
 
 fn main() {
-    increasing_order_search_tree::main();
+    univalued_binary_tree::main();
 }
