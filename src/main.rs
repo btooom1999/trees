@@ -91,7 +91,8 @@ mod find_mode_in_binary_search_tree;
 mod maximum_depth_of_n_ary_tree;
 mod binary_tree_tilt;
 mod n_ary_tree_preorder_traversal;
+mod average_of_levels_in_binary_tree;
 
 fn main() {
-    n_ary_tree_preorder_traversal::main();
+    average_of_levels_in_binary_tree::main();
 }
