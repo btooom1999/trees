@@ -88,7 +88,10 @@ mod time_needed_to_inform_all_employees;
 mod flatten_binary_tree_to_linked_list;
 mod sum_of_left_leaves;
 mod find_mode_in_binary_search_tree;
+mod maximum_depth_of_n_ary_tree;
+mod binary_tree_tilt;
+mod n_ary_tree_preorder_traversal;
 
 fn main() {
-    find_mode_in_binary_search_tree::main();
+    n_ary_tree_preorder_traversal::main();
 }
