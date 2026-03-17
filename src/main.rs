@@ -98,7 +98,8 @@ mod increasing_order_search_tree;
 mod univalued_binary_tree;
 mod sum_of_root_to_leaf_binary_numbers;
 mod find_a_corresponding_node_of_a_binary_tree_in_a_clone_of_that_tree;
+mod recover_a_tree_from_preorder_traversal;
 
 fn main() {
-    find_a_corresponding_node_of_a_binary_tree_in_a_clone_of_that_tree::main();
+    recover_a_tree_from_preorder_traversal::main();
 }
