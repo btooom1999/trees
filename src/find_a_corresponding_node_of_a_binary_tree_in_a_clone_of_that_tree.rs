@@ -1,5 +1,6 @@
-use std::{cell::RefCell, rc::Rc};
+use std::{cell::RefCell, rc::{self, Rc}};
 
+#[derive(Debug, PartialEq, Eq)]
 struct TreeNode {
     val: i32,
     left: Option<Rc<RefCell<TreeNode>>>,
@@ -22,7 +23,6 @@ fn vec_to_tree(nums: Vec<Option<i32>>) -> Option<Rc<RefCell<TreeNode>>> {
 
     let mut i = 1;
     let n = nums.len();
-
     while i < n {
         let mut new_nodes = Vec::new();
         for node_rc in nodes.iter() {
@@ -42,32 +42,43 @@ fn vec_to_tree(nums: Vec<Option<i32>>) -> Option<Rc<RefCell<TreeNode>>> {
             }
             i += 1;
         }
+
         nodes = new_nodes;
     }
 
     Some(root)
 }
 
-fn helper(node: Option<Rc<RefCell<TreeNode>>>, bit: i32) -> i32 {
-    if let Some(node_rc) = node {
-        let node = node_rc.borrow();
-        let bit = (bit << 1) | node.val;
+fn get_target_copy(
+    original: Option<Rc<RefCell<TreeNode>>>,
+    cloned: Option<Rc<RefCell<TreeNode>>>,
+    target: Option<Rc<RefCell<TreeNode>>>,
+) -> Option<Rc<RefCell<TreeNode>>> {
+    if let Some(node_rc) = cloned {
+        let mut node = node_rc.borrow_mut();
 
-        if node.left.is_none() && node.right.is_none() {
-            return bit;
+        if Some(node_rc.clone()) == target {
+            return Some(node_rc.clone());
         }
 
-        helper(node.left.clone(), bit) + helper(node.right.clone(), bit)
+        if node.left == target {
+            return node.left.take();
+        }
+        if node.right == target {
+            return node.right.take();
+        }
+
+        let left = get_target_copy(original.clone(), node.left.clone(), target.clone());
+        let right = get_target_copy(original.clone(), node.right.clone(), target.clone());
+
+        if left.is_none() { right } else { left }
     } else {
-        0
+        None
     }
 }
 
-fn sum_root_to_leaf(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
-    helper(root, 0)
-}
-
 pub fn main() {
-    let root = vec![Some(1), Some(0), Some(1), Some(0), Some(1), Some(0), Some(1)];
-    println!("{}", sum_root_to_leaf(vec_to_tree(root)));
+    let tree = vec![Some(7), Some(4), Some(3), None, None, Some(6), Some(19)];
+    let target = vec![Some(3), Some(6), Some(19)];
+    println!("{:?}", get_target_copy(vec_to_tree(tree.clone()), vec_to_tree(tree), vec_to_tree(target)))
 }
