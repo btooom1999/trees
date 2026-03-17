@@ -58,7 +58,6 @@ mod lowest_common_ancestor_of_a_binary_tree_2;
 mod lowest_common_ancestor_of_a_binary_tree_3;
 mod lowest_common_ancestor_of_a_binary_tree_4;
 mod construct_quad_tree;
-mod populating_next_right_pointers_in_each_node;
 mod flip_equivalent_binary_trees;
 mod validate_binary_tree_nodes;
 mod largest_bst_subtree;
@@ -99,7 +98,9 @@ mod univalued_binary_tree;
 mod sum_of_root_to_leaf_binary_numbers;
 mod find_a_corresponding_node_of_a_binary_tree_in_a_clone_of_that_tree;
 mod recover_a_tree_from_preorder_traversal;
+mod populating_next_right_pointers_in_each_node;
+mod populating_next_right_pointers_in_each_node_2;
 
 fn main() {
-    recover_a_tree_from_preorder_traversal::main();
+    populating_next_right_pointers_in_each_node_2::main();
 }
