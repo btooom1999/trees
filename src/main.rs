@@ -101,7 +101,8 @@ mod recover_a_tree_from_preorder_traversal;
 mod populating_next_right_pointers_in_each_node;
 mod populating_next_right_pointers_in_each_node_2;
 mod trim_a_binary_search_tree;
+mod recover_binary_search_tree;
 
 fn main() {
-    trim_a_binary_search_tree::main();
+    recover_binary_search_tree::main();
 }
