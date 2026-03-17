@@ -1,4 +1,4 @@
-use std::{cell::RefCell, rc::Rc};
+use std::{cell::RefCell, rc::{self, Rc}};
 
 #[derive(Debug)]
 struct TreeNode {
@@ -82,29 +82,62 @@ fn vec_to_tree(nums: Vec<Option<i32>>) -> Option<Rc<RefCell<TreeNode>>> {
 //     }
 // }
 
-fn recover_tree(root: &mut Option<Rc<RefCell<TreeNode>>>) {
-    let mut stack = Vec::new();
-    let mut curr = root.clone();
-    let mut prev = None as Option<Rc<RefCell<TreeNode>>>;
-    let (mut node1, mut node2) = (None, None);
-    while !stack.is_empty() || curr.is_some() {
-        while let Some(node_rc) = curr {
-            stack.push(node_rc.clone());
-            curr = node_rc.borrow().left.clone();
-        }
+// fn recover_tree(root: &mut Option<Rc<RefCell<TreeNode>>>) {
+//     let mut stack = Vec::new();
+//     let mut curr = root.clone();
+//     let mut prev = None as Option<Rc<RefCell<TreeNode>>>;
+//     let (mut node1, mut node2) = (None, None);
+//     while !stack.is_empty() || curr.is_some() {
+//         while let Some(node_rc) = curr {
+//             stack.push(node_rc.clone());
+//             curr = node_rc.borrow().left.clone();
+//         }
 
-        if let Some(popped) = stack.pop() {
-            if let Some(prev) = prev.clone() && prev.borrow().val > popped.borrow().val {
-                node2 = Some(popped.clone());
-                if node1.is_none() {
-                    node1 = Some(prev.clone());
-                }
+//         if let Some(popped) = stack.pop() {
+//             if let Some(prev) = prev.clone() && prev.borrow().val > popped.borrow().val {
+//                 node2 = Some(popped.clone());
+//                 if node1.is_none() {
+//                     node1 = Some(prev.clone());
+//                 }
+//             }
+
+//             prev = Some(popped.clone());
+//             curr = popped.borrow().right.clone();
+//         }
+//     }
+
+//     if let (Some(node1), Some(node2)) = (node1, node2) {
+//         let mut node1 = node1.borrow_mut();
+//         let mut node2 = node2.borrow_mut();
+//         (node1.val, node2.val) = (node2.val, node1.val);
+//     }
+// }
+
+
+fn helper(
+    node: Option<Rc<RefCell<TreeNode>>>,
+    prev: &mut Option<Rc<RefCell<TreeNode>>>,
+    node1: &mut Option<Rc<RefCell<TreeNode>>>,
+    node2: &mut Option<Rc<RefCell<TreeNode>>>,
+) {
+    if let Some(node_rc) = node {
+        let node = node_rc.borrow();
+
+        helper(node.left.clone(), prev, node1, node2);
+        if let Some(prev_rc) = prev.clone() && prev_rc.borrow().val > node.val {
+            *node2 = Some(node_rc.clone());
+            if node1.is_none() {
+                *node1 = Some(prev_rc.clone());
             }
-
-            prev = Some(popped.clone());
-            curr = popped.borrow().right.clone();
         }
+        *prev = Some(node_rc.clone());
+        helper(node.right.clone(), prev, node1, node2);
     }
+}
+
+fn recover_tree(root: &mut Option<Rc<RefCell<TreeNode>>>) {
+    let (mut node1, mut node2) = (None, None);
+    helper(root.clone(), &mut None, &mut node1, &mut node2);
 
     if let (Some(node1), Some(node2)) = (node1, node2) {
         let mut node1 = node1.borrow_mut();
