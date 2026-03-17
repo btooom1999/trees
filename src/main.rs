@@ -100,7 +100,8 @@ mod find_a_corresponding_node_of_a_binary_tree_in_a_clone_of_that_tree;
 mod recover_a_tree_from_preorder_traversal;
 mod populating_next_right_pointers_in_each_node;
 mod populating_next_right_pointers_in_each_node_2;
+mod trim_a_binary_search_tree;
 
 fn main() {
-    populating_next_right_pointers_in_each_node_2::main();
+    trim_a_binary_search_tree::main();
 }
