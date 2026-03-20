@@ -102,7 +102,8 @@ mod populating_next_right_pointers_in_each_node;
 mod populating_next_right_pointers_in_each_node_2;
 mod trim_a_binary_search_tree;
 mod recover_binary_search_tree;
+mod minimum_number_of_operations_to_sort_a_binary_tree_by_level;
 
 fn main() {
-    recover_binary_search_tree::main();
+    minimum_number_of_operations_to_sort_a_binary_tree_by_level::main();
 }
