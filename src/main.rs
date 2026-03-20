@@ -103,7 +103,8 @@ mod populating_next_right_pointers_in_each_node_2;
 mod trim_a_binary_search_tree;
 mod recover_binary_search_tree;
 mod minimum_number_of_operations_to_sort_a_binary_tree_by_level;
+mod minimum_time_to_collect_all_apples_in_a_tree;
 
 fn main() {
-    minimum_number_of_operations_to_sort_a_binary_tree_by_level::main();
+    minimum_time_to_collect_all_apples_in_a_tree::main();
 }
