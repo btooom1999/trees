@@ -105,7 +105,8 @@ mod recover_binary_search_tree;
 mod minimum_number_of_operations_to_sort_a_binary_tree_by_level;
 mod minimum_time_to_collect_all_apples_in_a_tree;
 mod jump_game_3;
+mod count_complete_tree_node;
 
 fn main() {
-    jump_game_3::main();
+    count_complete_tree_node::main();
 }
